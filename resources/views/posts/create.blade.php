@@ -1,49 +1,44 @@
-@extends('layout.admin')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+    
+    <title>Document</title>
+</head>
+<body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <form action="{{ route('posts.store') }}" method="POST" role="form">
-                    @csrf
-                    <legend>Create new posts</legend>
-                    <div class="form-group">
-                        <label for="">Title</label>
-                        <input type="text" name="title" class="form-control" id="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Content</label>
-                        <input type="text" name="content" class="form-control mce" id="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Status</label>
-                        <select name="status" id="input" class="form-control" required="required">
-                            <option value="1">Public</option>
-                            <option value="2">Draft</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Category</label>
-                        <select name="category_id" id="input" class="form-control" required="required">
-                            <option value="">Choose</option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Tag</label>
-                        <select name="tags[]" id="input" class="form-control select2" required="required" multiple>
-                            @foreach ($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Create new post</button>
-                </form>
+            <div class="col-md-12">
+            <form action="{{route('posts.store')}}" method="POST" role="form" class="form-group">@csrf
+                <legend>Create new posts</legend>
+            
+                <div class="form-group">
+                    <label for="">Title</label>
+                    <input type="text" class="form-control" namespace "title" id="" placeholder="Input field">
+                </div>
+                <div class="form-group">
+                    <label for="">Content</label>
+                    <input type="text" class="form-control" namespace "content" id="" placeholder="Input field">
+                </div>
+            
+                
+            
+                <button type="submit" class="btn btn-primary">Create new post</button>
+            </form>
             </div>
         </div>
     </div>
-@endsection
+    
+    
+
+
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>

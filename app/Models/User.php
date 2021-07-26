@@ -40,24 +40,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function isAdmin()
-    {
-        return $this->role == config('role.admin');
-    }
-
-    public function isEditor()
-    {
-        return $this->role == config('role.editor');
-    }
-
-    public function isModerator()
-    {
-        return $this->role == config('role.moderator');
-    }
-
-    public function isSale()
-    {
-        return $this->role == config('role.sale');
-    }
 }
